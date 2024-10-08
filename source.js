@@ -259,7 +259,7 @@ function loadMatchFromLocalStorage() {
     document
       .querySelectorAll("[id^='team-a-'] img, [id^='team-b-'] img")
       .forEach((img) => {
-        img.src = "/images/ROVProLeague.png"; // Clear the hero image
+        img.src = "images/ROVProLeague.png"; // Clear the hero image
         img.alt = ""; // Clear alt text
       });
 
