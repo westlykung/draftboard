@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Draft Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <h1 class="text-3xl font-bold text-center my-5">
+      Hero Draft Board with Match Selection and History
+    </h1>
+
+    <!-- Match Buttons Section -->
+    <div class="flex justify-center mb-5 space-x-2 flex-wrap">
+      <button
+        class="bg-gray-200 text-gray-800 hover:bg-gray-300 px-4 py-2 rounded-lg"
+        data-math="1"
+      >
+        Match 1
+      </button>
+      <button
+        class="bg-gray-200 text-gray-800 hover:bg-gray-300 px-4 py-2 rounded-lg"
+        data-math="2"
+      >
+        Match 2
+      </button>
+      <button
+        class="bg-gray-200 text-gray-800 hover:bg-gray-300 px-4 py-2 rounded-lg"
+        data-math="3"
+      >
+        Match 3
+      </button>
+      <button
+        class="bg-gray-200 text-gray-800 hover:bg-gray-300 px-4 py-2 rounded-lg"
+        data-math="4"
+      >
+        Match 4
+      </button>
+      <button
+        class="bg-gray-200 text-gray-800 hover:bg-gray-300 px-4 py-2 rounded-lg"
+        data-math="5"
+      >
+        Match 5
+      </button>
+      <button
+        class="bg-gray-200 text-gray-800 hover:bg-gray-300 px-4 py-2 rounded-lg"
+        data-math="6"
+      >
+        Match 6
+      </button>
+      <button
+        class="bg-gray-200 text-gray-800 hover:bg-gray-300 px-4 py-2 rounded-lg"
+        data-math="7"
+      >
+        Match 7
+      </button>
+    </div>
+
+    <div class="container mx-auto flex flex-col md:flex-row gap-6 px-4">
+      <!-- Draft board for teams -->
+      <div class="w-full md:w-2/3 bg-white p-4 shadow-lg rounded-lg">
+        <h3 class="text-xl font-semibold mb-4" id="team-a-name">Team A</h3>
+
+        <!-- tag team a -->
+        <ul
+          class="team droppable grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 p-4 border-dashed border-2 border-gray-400 min-h-[200px]"
+        >
+          <li
+            id="team-a-abyssal-dragon-lane"
+            class="border-dashed border-2 border-gray-400 min-h-[200px] flex flex-col items-center justify-center"
+          >
+            <img
+              id="team-a-abyssal-dragon-lane-img"
+              src=""
+              class="h-[80%] p-2"
+              alt="empty"
+            />
+            <span class="text-center text-xs">Abyssal Dragon Lane </span>
+          </li>
+          <li
+            id="team-a-dark-slayer-lane"
+            class="border-dashed border-2 border-gray-400 min-h-[200px] flex flex-col items-center justify-center"
+          >
+            <img
+              id="team-a-dark-slayer-lane-img"
+              src=""
+              class="h-[80%] p-2"
+              alt="empty"
+            />
+            <span class="text-center text-xs">Dark Slayer Lane </span>
+          </li>
+          <li
+            id="team-a-mid-lane"
+            class="border-dashed border-2 border-gray-400 min-h-[200px] flex flex-col items-center justify-center"
+          >
+            <img
+              id="team-a-mid-lane-img"
+              src=""
+              class="h-[80%] p-2"
+              alt="empty"
+            />
+            <span class="text-center text-xs">Mid Lane </span>
+          </li>
+          <li
+            id="team-a-jungle"
+            class="border-dashed border-2 border-gray-400 min-h-[200px] flex flex-col items-center justify-center"
+          >
+            <img
+              id="team-a-jungle-img"
+              src=""
+              class="h-[80%] p-2"
+              alt="empty"
+            />
+            <span class="text-center text-xs">Jungle </span>
+          </li>
+          <li
+            id="team-a-support-roaming"
+            class="border-dashed border-2 border-gray-400 min-h-[200px] flex flex-col items-center justify-center"
+          >
+            <img
+              id="team-a-support-roaming-img"
+              src=""
+              class="h-[80%] p-2"
+              alt="empty"
+            />
+            <span class="text-center text-xs">Support/Roaming </span>
+          </li>
+        </ul>
+        <!-- end tag -->
+        <p class="text-gray-700">
+          Selected heroes: <span id="team-a-count">0</span>/5
+        </p>
+
+        <h3 class="text-xl font-semibold mb-4" id="team-b-name">Team B</h3>
+        <!--           class="team droppable border-dashed border-2 border-gray-400 p-4 mb-4 grid grid-cols-5 gap-4 min-h-[200px]"
+ -->
+
+        <!-- tag team-b -->
+        <ul
+          class="team droppable grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 p-4 border-dashed border-2 border-gray-400 min-h-[200px]"
+        >
+          <li
+            id="team-b-abyssal-dragon-lane"
+            class="border-dashed border-2 border-gray-400 min-h-[200px] flex flex-col items-center justify-center"
+          >
+            <img
+              id="team-b-abyssal-dragon-lane-img"
+              src=""
+              class="h-[80%] p-2"
+              alt="empty"
+            />
+            <span class="text-center text-xs">Abyssal Dragon Lane </span>
+          </li>
+          <li
+            id="team-b-dark-slayer-lane"
+            class="border-dashed border-2 border-gray-400 min-h-[200px] flex flex-col items-center justify-center"
+          >
+            <img
+              id="team-b-dark-slayer-lane-img"
+              src=""
+              class="h-[80%] p-2"
+              alt="empty"
+            />
+            <span class="text-center text-xs">Dark Slayer Lane </span>
+          </li>
+          <li
+            id="team-b-mid-lane"
+            class="border-dashed border-2 border-gray-400 min-h-[200px] flex flex-col items-center justify-center"
+          >
+            <img
+              id="team-b-mid-lane-img"
+              src=""
+              class="h-[80%] p-2"
+              alt="empty"
+            />
+            <span class="text-center text-xs">Mid Lane </span>
+          </li>
+          <li
+            id="team-b-jungle"
+            class="border-dashed border-2 border-gray-400 min-h-[200px] flex flex-col items-center justify-center"
+          >
+            <img
+              id="team-b-jungle-img"
+              src=""
+              class="h-[80%] p-2"
+              alt="empty"
+            />
+            <span class="text-center text-xs">Jungle </span>
+          </li>
+          <li
+            id="team-b-support-roaming"
+            class="border-dashed border-2 border-gray-400 min-h-[200px] flex flex-col items-center justify-center"
+          >
+            <img
+              id="team-b-support-roaming-img"
+              src=""
+              class="h-[80%] p-2"
+              alt="empty"
+            />
+            <span class="text-center text-xs">Support/Roaming </span>
+          </li>
+        </ul>
+        <!-- end team-b -->
+        <p class="text-gray-700">
+          Selected heroes: <span id="team-b-count">0</span>/5
+        </p>
+
+        <div class="flex justify-between mt-4">
+          <button
+            id="reset-button"
+            class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 w-full sm:w-auto"
+          >
+            Reset Game
+          </button>
+          <button
+            id="save-history-button"
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 w-full sm:w-auto hidden"
+          >
+            Save History
+          </button>
+        </div>
+
+        <!-- meta hero -->
+        <h3 class="text-xl font-semibold mb-4" id="team-a-name">Hero Meta</h3>
+
+        <!-- tag team a -->
+        <ul
+          id="hero-meta-all-team"
+          class="team droppable grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 p-4 border-dashed border-2 border-gray-400 min-h-[200px]"
+        >
+          <!-- <li
+            class="border-dashed border-2 border-gray-400 min-h-[200px] flex flex-col items-center justify-center"
+          >
+            <img
+              id="team-a-abyssal-dragon-lane-img"
+              src=""
+              class="h-[80%] p-2"
+              alt="empty"
+            />
+            <span class="text-center text-xs">Abyssal Dragon Lane </span>
+          </li> -->
+        </ul>
+        <!-- meta hero -->
+      </div>
+
+      <!-- Hero Container and Dropdown Filter -->
+      <div class="w-full md:w-1/3 flex flex-col">
+        <!-- Dropdown for filtering heroes by role -->
+        <div class="mb-4">
+          <label for="hero-filter" class="block text-lg font-semibold mb-2"
+            >Filter by Role</label
+          >
+          <select
+            id="hero-filter"
+            class="w-full sm:w-auto p-2 border rounded-lg"
+          >
+            <option value="all">All Roles</option>
+            <option value="Fighter">Fighter</option>
+            <option value="Mage">Mage</option>
+            <option value="Support">Support</option>
+            <option value="Tank">Tank</option>
+            <option value="Assassin">Assassin</option>
+            <option value="Carry">Carry</option>
+          </select>
+        </div>
+
+        <!-- Hero Container -->
+        <div
+          id="hero-container"
+          class="flex-1 bg-white p-4 shadow-lg rounded-lg overflow-auto"
+        >
+          <h3 class="text-xl font-semibold mb-4">Available Heroes</h3>
+          <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
+            <!-- This will be dynamically populated with hero images -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./source.js"></script>
+  </body>
+</html>
